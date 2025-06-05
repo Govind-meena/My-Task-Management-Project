@@ -1,0 +1,116 @@
+.container {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.title {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input,
+select,
+textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.submitBtn {
+  padding: 10px;
+  background-color: #764ba2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background-color: #5a3a87;
+}
+.taskHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #e74c3c;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+.closeBtn:hover {
+  transform: scale(1.2);
+  color: #c0392b;
+}
+.Taskcard {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.projectHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.editButton {
+    top: 10px;
+    right: 10px;
+    background-color: #667eea;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show edit button on hover */
+.projectcard:hover .editButton {
+    opacity: 1;
+}
+
+.deleteButton {
+    top: 15px;
+    right: 10px;
+    background-color: #ef2323;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+.projectcard:hover .deleteButton {
+    opacity: 1;
+}
+

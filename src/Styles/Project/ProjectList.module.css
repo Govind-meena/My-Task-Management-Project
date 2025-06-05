@@ -1,0 +1,50 @@
+.projectcard {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.projectHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.editButton {
+    top: 10px;
+    right: 10px;
+    background-color: #667eea;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show edit button on hover */
+.projectcard:hover .editButton {
+    opacity: 1;
+}
+
+.deleteButton {
+    top: 15px;
+    right: 10px;
+    background-color: #ef2323;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+.projectcard:hover .deleteButton {
+    opacity: 1;
+}
