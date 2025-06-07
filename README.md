@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+# 🚀 Task Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web-based Task Management System built using **React** to help teams plan, track, and manage tasks efficiently. The system supports task creation, assignment, status tracking, due dates, and more.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🔧 Tech Stack
 
-### `npm start`
+- **Frontend**: React, CSS Modules
+- **State Management**: React Context API
+- **Routing**: React Router DOM
+- **Date Handling**: Day.js
+- **Icons**: React Icons
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✅ Features
 
-### `npm test`
+- 📋 Create and manage tasks
+- 👤 Assign users to tasks
+- 🏷️ Set task types and priorities
+- 🕒 Track task status (Open, In Progress, Paused, Done)
+- 📅 Set and display due dates using `dayjs`
+- 👁️ View task and sub-task details
+- ✏️ Edit and delete tasks
+- 🎯 User initials for quick recognition
+- 📂 Context-based global state management
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+📌 Dependencies
+  -   react
+  -   react-dom
+  -   react-icons
+  -   react-router-dom
+  -   dayjs
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📘 Project Documentation
+This documentation outlines the complete workflow of the Project Management System, including project creation, user management, task and subtask handling, and dashboard overview.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🟢 Step 1: Project Management
+     Create a New Project
+     Navigate to the Project Add Form and enter the required project details to create a new project.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+     View Project List
+     After successfully adding a project, it will appear in the project list. From here, you can:
+     Update the project details.
+     Delete any project as needed.
 
-### `npm run eject`
+🟢 Step 2: User Management
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    Add a New User
+    Go to the User Add Form and fill in the necessary information to create a new user.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    Manage User List
+    Once a user is added, their data will be displayed in the user list. From here, you can:
+    Update user information.
+    Delete a user if needed.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🟢 Step 3: Task Management
+   Create a Task
+   Select a Project in which you want to create the task (required field).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+If you try to save the task without selecting a project, an error message will be shown.
+Enter the Task Title.
+Provide the Task Description.
+Select the Task Priority (e.g., Low, Medium, High).
+Choose the Due Date.
+Click the "Add Task" button to save the task.
 
-## Learn More
+View and Assign Tasks
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+After creation, tasks are listed in the Task List view.
+Each task includes an Assignee dropdown where you can assign it to a user.
+The user list is populated from the added users.
+Once a user is selected, the task is assigned to that user.
+Task Status
+Every task is created with a default status of "Open".
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Users can update the task status to:
+In-Progress
+Done
+Paused, etc.
 
-### Code Splitting
+🟢 Step 4: Subtask Management
+View Task Details
+Click the 👁️ eye icon beside any task to open the Task Details window.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Add a Subtask
+In the Task Details window, click the "Add SubTask" button.
+Enter the required subtask information and save it.
 
-### Analyzing the Bundle Size
+Manage Subtasks
+Subtasks appear in a list below their respective task.
+From this list, you can:
+Update subtask information.
+Delete any subtask as needed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+🟢 Final Step: Dashboard Overview
+Accessing the Dashboard
 
-### Making a Progressive Web App
+Navigate to the Dashboard section of the application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Filtering Tasks
+Use the filters to select a User and a Task Status (Open, In-Progress, Paused, Done).
+Based on the selection, the dashboard displays tasks assigned to the selected user with the specified status.
+Task Status Overview
 
-### Advanced Configuration
+The dashboard contains separate boxes for each task status:
+🟡 Open Tasks
+🔵 In-Progress Tasks
+🟠 Paused Tasks
+✅ Done Tasks
+Each box shows the count and relevant task data for easy tracking and monitoring.
+   
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
