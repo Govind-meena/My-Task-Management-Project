@@ -58,8 +58,8 @@ This documentation outlines the complete workflow of the Project Management Syst
     Delete a user if needed.
 
 🟢 Step 3: Task Management
-   Create a Task
-   Select a Project in which you want to create the task (required field).
+    Create a Task
+    Select a Project in which you want to create the task (required field).
 
 If you try to save the task without selecting a project, an error message will be shown.
 Enter the Task Title.
@@ -114,5 +114,15 @@ The dashboard contains separate boxes for each task status:
 Each box shows the count and relevant task data for easy tracking and monitoring.
    
 
+git Repositorie
+https://github.com/Govind-meena/My-Projects
 
+Navigate to the Project Directory
+cd My-Project
+
+Install Required Dependencies
+npm install 
+
+Start the Development Server
+npm start
 
