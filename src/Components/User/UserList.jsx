@@ -43,7 +43,7 @@ const UserList = (props) => {
                                     />
                                     <FaTrash
                                         className={`${styles.btnAction} ${styles.deleteBtn}`}
-                                        onClick={() => handleDelete(user.id)}
+                                        onClick={() => props.handleDeleteUser(user.id)}
                                         title="Delete User"
                                     />
                                 </div>

@@ -74,6 +74,7 @@ const AddUser = (props) => {
         props.setAddUserWindow(false)
         props.setUserDetails('')
     }
+   
     return (
         <div style={{
             position: 'relative',

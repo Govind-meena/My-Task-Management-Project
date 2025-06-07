@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import AddUser from '../../Components/User/AddUser'
 import UserList from '../../Components/User/UserList'
+import { ProjectContext } from '../../Context/ContextProvider'
 
 const User = () => {
     const [addUserWindow, setAddUserWindow] = useState(false)
     const [isHovered, setIsHovered] = useState(false);
     const [userDetails, setUserDetails] = useState('')
+    const { userData, setUserData } = useContext(ProjectContext);
     const handleOpenAddUserWindow = () => {
         setAddUserWindow(true)
     }
+    const handleDeleteUser = (id) => {
+        const updatedUsers = userData.filter(user => user.id !== id);
+        setUserData(updatedUsers);
+    };
     return (
         <div
             style={{
@@ -47,7 +53,7 @@ const User = () => {
 
             </div>
             <div style={{ overflowY: 'auto' }}>
-                <UserList setAddUserWindow={setAddUserWindow} setUserDetails={setUserDetails}/>
+                <UserList setAddUserWindow={setAddUserWindow} setUserDetails={setUserDetails} handleDeleteUser={handleDeleteUser} />
             </div>
             {addUserWindow && (
                 <div
@@ -77,7 +83,7 @@ const User = () => {
                             boxSizing: 'border-box'
                         }}
                     >
-                        <AddUser setAddUserWindow={setAddUserWindow} userDetails={userDetails} setUserDetails={setUserDetails}/>
+                        <AddUser setAddUserWindow={setAddUserWindow} userDetails={userDetails} setUserDetails={setUserDetails} />
                     </div>
                 </div>
             )}
