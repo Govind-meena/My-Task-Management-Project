@@ -1,6 +1,6 @@
 .userlistcontainer {
     padding: 20px;
-    background: #f8f9fa;
+    background: 'linear-gradient(135deg, rgb(133 157 195) 0%, rgb(255, 255, 255) 100%)';
     min-height: 100vh;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .userCard {
-    background: white;
+    background: #e5e7eb;
     border-radius: 16px;
     padding: 24px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -60,7 +60,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #764ba2 0%, #667eea 100%);
+    /* background: linear-gradient(90deg, #764ba2 0%, #667eea 100%); */
 }
 
 .userCard:hover {
@@ -79,7 +79,7 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    background: rgb(126, 179, 235);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,14 +115,15 @@
 }
 
 .editBtn {
-    background: #f3e5f5;
-    color: #7b1fa2;
+    background: white;
+    color: #24aadb;
     font-size: 10px;
 }
 
 .editBtn:hover {
-    background: #e1bee7;
+    background: #24aadb;
     transform: scale(1.1);
+    color: white;
 }
 
 .deleteBtn {

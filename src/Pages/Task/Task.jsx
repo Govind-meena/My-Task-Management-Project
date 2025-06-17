@@ -38,9 +38,9 @@ const Task = () => {
   return (
     <div
       style={{
-        minHeight: '92vh',
+        minHeight: '100vh',
         overflow: 'hidden',
-        background: 'linear-gradient(135deg, rgb(217, 222, 244) 0%, rgb(255, 255, 255) 100%)',
+        background: 'linear-gradient(135deg, rgb(133 157 195) 0%, rgb(255, 255, 255) 100%)',
         padding: '20px',
         fontFamily: 'Poppins',
         position: 'relative',
@@ -57,8 +57,8 @@ const Task = () => {
               style={{
                 padding: '10px 20px',
                 marginBottom: '20px',
-                backgroundColor: isHovered ? 'rgb(75, 108, 183)' : '#fff',
-                color: isHovered ? '#fff' : '#764ba2',
+                backgroundColor: isHovered ? 'rgb(126, 179, 235)' : '#fff',
+                color: isHovered ? '#fff' : 'rgb(95, 162, 234)',
                 border: '1px solid blue',
                 borderRadius: '8px',
                 fontWeight: 'bold',
@@ -73,7 +73,7 @@ const Task = () => {
 
       </div>
       <div >
-        <TaskList handleEditTask={handleEditTask} handleRemoveTask={handleRemoveTask} handleAssignUserToTask={handleAssignUserToTask} handleChangeRunStatus={handleChangeRunStatus}/>
+        <TaskList handleEditTask={handleEditTask} handleRemoveTask={handleRemoveTask} handleAssignUserToTask={handleAssignUserToTask} handleChangeRunStatus={handleChangeRunStatus} />
       </div>
       {opentaskWindow && (
         <div

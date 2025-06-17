@@ -147,7 +147,7 @@ const AddSubtask = (props) => {
                     onClick={handleSubmit}
                     style={{
                         padding: '12px 25px',
-                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                        backgroundColor: 'rgb(126, 179, 235)',
                         color: 'white',
                         border: 'none',
                         borderRadius: '8px',

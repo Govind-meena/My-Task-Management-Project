@@ -10,7 +10,7 @@ const Subtask = () => {
     const [openSubTaskWindow, setOpenSubTaskWindow] = useState(false)
     const [editSubTaskData, setEditSubTaskData] = useState('')
     const [isHovered, setIsHovered] = useState(false)
-    const {subTaskData, setSubTaskData } = useContext(ProjectContext);
+    const { subTaskData, setSubTaskData } = useContext(ProjectContext);
     const handleOpenSubtask = () => {
         setOpenSubTaskWindow(true)
     }
@@ -37,8 +37,8 @@ const Subtask = () => {
                             style={{
                                 padding: '10px 20px',
                                 marginBottom: '20px',
-                                backgroundColor: isHovered ? 'rgb(75, 108, 183)' : '#fff',
-                                color: isHovered ? '#fff' : '#764ba2',
+                                backgroundColor: isHovered ? 'rgb(126, 179, 235)' : '#fff',
+                                color: isHovered ? '#fff' : 'rgb(95, 162, 234)',
                                 border: '1px solid blue',
                                 borderRadius: '8px',
                                 fontWeight: 'bold',

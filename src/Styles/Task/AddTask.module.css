@@ -1,7 +1,7 @@
 .container {
   padding: 20px;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: #e5e7eb;
   max-width: 500px;
   margin: 0 auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -31,7 +31,7 @@ textarea {
 
 .submitBtn {
   padding: 10px;
-  background-color: #764ba2;
+  background-color: #80afe5;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -39,7 +39,7 @@ textarea {
 }
 
 .submitBtn:hover {
-  background-color: #5a3a87;
+  background-color: #66a2e3;
 }
 .taskHeader {
     display: flex;
@@ -65,7 +65,7 @@ textarea {
 }
 .Taskcard {
     position: relative;
-    background-color: #fff;
+    background-color: #f3f4f6;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

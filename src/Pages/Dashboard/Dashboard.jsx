@@ -11,7 +11,6 @@ const statusColors = {
 
 const Dashboard = () => {
   const { userData, taskData } = useContext(ProjectContext);
-  console.log(taskData);
 
   const [selectedUser, setSelectedUser] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('');
@@ -19,7 +18,7 @@ const Dashboard = () => {
   const statuses = ['Open', 'In Progress', 'Paused', 'Done'];
 
   const filteredTasks = taskData.filter(task => {
-    const userMatch = selectedUser ? task.assignedUserId.toString() === selectedUser : true;
+    const userMatch = selectedUser ? task.assignedUserId.toString() === selectedUser.toString() : true;
     const statusMatch = selectedStatus ? task.taskRunStatus === selectedStatus : true;
     return userMatch && statusMatch;
   });

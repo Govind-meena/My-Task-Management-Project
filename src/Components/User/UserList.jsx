@@ -13,11 +13,7 @@ const UserList = (props) => {
         props.setAddUserWindow(true)
     };
 
-    const handleDelete = (userId) => {
-        console.log('Delete user:', userId);
-        // Add your delete logic here
-        // Example: setUserData(userData.filter(user => user.id !== userId));
-    };
+
 
     return (
         <div className={styles.userlistcontainer}>

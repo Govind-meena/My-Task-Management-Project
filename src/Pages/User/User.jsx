@@ -20,7 +20,7 @@ const User = () => {
             style={{
                 minHeight: '92vh',
                 overflow: 'hidden',
-                background: 'linear-gradient(135deg, rgb(217, 222, 244) 0%, rgb(255, 255, 255) 100%)',
+                background: 'linear-gradient(135deg, rgb(133 157 195) 0%, rgb(255, 255, 255) 100%)',
                 padding: '20px',
                 fontFamily: 'Poppins',
                 position: 'relative',
@@ -37,8 +37,8 @@ const User = () => {
                             style={{
                                 padding: '10px 20px',
                                 marginBottom: '20px',
-                                backgroundColor: isHovered ? 'rgb(75, 108, 183)' : '#fff',
-                                color: isHovered ? '#fff' : '#764ba2',
+                                backgroundColor: isHovered ? 'rgb(126, 179, 235)' : '#fff',
+                                color: isHovered ? '#fff' : 'rgb(95, 162, 234)',
                                 border: '1px solid blue',
                                 borderRadius: '8px',
                                 fontWeight: 'bold',
@@ -46,7 +46,7 @@ const User = () => {
                                 transition: 'background-color 0.3s, color 0.3s',
                             }}
                         >
-                            Add User
+                           + Add User
                         </button>
                     </div>
                 )}

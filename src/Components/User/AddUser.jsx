@@ -74,7 +74,7 @@ const AddUser = (props) => {
         props.setAddUserWindow(false)
         props.setUserDetails('')
     }
-   
+
     return (
         <div style={{
             position: 'relative',
@@ -93,7 +93,6 @@ const AddUser = (props) => {
                     fontSize: '20px',
                     fontWeight: 'bold',
                     cursor: 'pointer',
-                    // color: hovered ? 'red' : '#aaa',
                     transition: 'color 0.3s ease',
                     fontFamily: 'Poppins',
                 }}
@@ -224,7 +223,7 @@ const AddUser = (props) => {
                     onClick={handleSaveUser}
                     style={{
                         padding: '12px 25px',
-                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                        background: 'linear-gradient(#7eb3eb 0%)',
                         color: 'white',
                         border: 'none',
                         borderRadius: '8px',

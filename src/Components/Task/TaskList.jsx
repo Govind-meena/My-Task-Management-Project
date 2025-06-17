@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { ProjectContext } from '../../Context/ContextProvider';
 import styles from '../../Styles/Task/AddTask.module.css';
-import { FaEye, FaEdit, FaTrash, FaUser } from 'react-icons/fa';
+import { FaEye, FaEdit, FaTrash, FaUser, FaPlus } from 'react-icons/fa';
 import TaskDetailsWindow from './TaskDetailsWindow';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
@@ -14,7 +14,8 @@ const TaskList = (props) => {
     const navigate = useNavigate();
 
     const handleEyeClick = (task) => {
-        navigate('/Subtask', { state: { Details: task } });
+        setTaskDetails(task)
+        setOpenDetailsWindow(true)
     };
 
     const handleCloseDetailsWindow = () => {
@@ -41,6 +42,10 @@ const TaskList = (props) => {
 
     const toggleUserDropdown = (taskId) => {
         setShowUserDropdown(showUserDropdown === taskId ? null : taskId);
+    };
+
+    const handleAddSubTask = (task) => {
+        navigate('/Subtask', { state: { Details: task } });
     };
 
     return (
@@ -184,12 +189,42 @@ const TaskList = (props) => {
                                 </div>
 
                                 {/* Task Info Section */}
-                                <div style={{ display: 'flex', flexDirection: 'column', color: '#555', marginTop: '10px', gap: '5px' }}>
-                                    <span><strong>Type:</strong> {task.taskType}</span>
-                                    <span><strong>Run Status:</strong> {task.taskRunStatus || 'Open'}</span>
-                                    {task.dueDate && (
-                                        <span><strong>Due Date:</strong> {dayjs(task.dueDate).format('DD MMM YYYY')}</span>
-                                    )}
+                                <div style={{ display: 'flex', justifyContent: "space-between", color: '#555', marginTop: '10px', gap: '5px' }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                        <span><strong>Type:</strong> {task.taskType}</span>
+                                        <span><strong>Run Status:</strong> {task.taskRunStatus || 'Open'}</span>
+                                        {task.dueDate && (
+                                            <span><strong>Due Date:</strong> {dayjs(task.dueDate).format('DD MMM YYYY')}</span>
+                                        )}
+                                    </div>
+                                    <div style={{ marginTop: "25px" }}>
+                                        <button
+                                            onClick={() => handleAddSubTask(task)}
+                                            style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '5px',
+                                                padding: '6px 12px',
+                                                backgroundColor: 'rgb(126, 179, 235)',
+                                                color: 'rgb(95, 162, 234)',
+                                                color: 'white',
+                                                border: 'none',
+                                                borderRadius: '6px',
+                                                fontSize: '12px',
+                                                cursor: 'pointer',
+                                                fontWeight: '500',
+                                                transition: 'background-color 0.2s'
+                                            }}
+                                            onMouseEnter={(e) => e.target.style.backgroundColor = 'rgb(126, 179, 235)'}
+                                            onMouseLeave={(e) => e.target.style.backgroundColor = 'rgb(126, 179, 235)'}
+                                            title="Add SubTask"
+                                        >
+                                            <FaPlus style={{ fontSize: '10px' }} />
+                                            <span>Add SubTask</span>
+                                        </button>
+
+
+                                    </div>
                                 </div>
                             </div>
                         );

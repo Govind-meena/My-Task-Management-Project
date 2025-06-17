@@ -29,7 +29,7 @@ const SubTasklist = (props) => {
     };
 
     const tdCenter = {
-        ...tdStyle,
+        transition: 'background 0.3s ease',
         textAlign: 'center'
     };
 
