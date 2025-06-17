@@ -3,9 +3,9 @@ import { ProjectContext } from '../../Context/ContextProvider';
 import styles from '../../Styles/DashBoard/DashBoard.module.css';
 
 const statusColors = {
-  Open: '#f39c12',         
+  Open: '#95a5a6',         
   'In Progress': '#2980b9', 
-  Paused: '#95a5a6',     
+  Paused: 'rgb(148 5 35)',     
   Done: '#27ae60',          
 };
 
