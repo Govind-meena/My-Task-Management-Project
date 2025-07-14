@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import { Calendar, User, Edit, Trash2, Plus, Grid3X3, List } from 'lucide-react';
 import { ProjectContext } from '../../Context/ContextProvider';
 import styles from '../../Styles/Project/ProjectList.module.css';
@@ -7,6 +7,7 @@ import dayjs from 'dayjs'; // Import Day.js
 const ProjectList = ({ handleEditProject, handleDeleteProject, viewMode, setViewMode }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [editingDateField, setEditingDateField] = useState(null); 
+    const dateInputRef = useRef(null);
     
     const { projectData, setProjectData } = useContext(ProjectContext); 
 
@@ -28,12 +29,25 @@ const ProjectList = ({ handleEditProject, handleDeleteProject, viewMode, setView
     // Using Day.js for date formatting
     const formatDate = (dateString) => {
         if (!dateString) return 'Not set';
-        return dayjs(dateString).format('DD MMMM YYYY'); // "09 June 2025"
+        return dayjs(dateString).format('DD MMMM YYYY'); 
     };
 
     const handleDateClick = (projectId, field) => {
         setEditingDateField({ projectId, field });
     };
+
+    // Auto-focus and open calendar when editing starts
+    useEffect(() => {
+        if (editingDateField && dateInputRef.current) {
+            dateInputRef.current.focus();
+            // Try to open the calendar picker directly
+            setTimeout(() => {
+                if (dateInputRef.current) {
+                    dateInputRef.current.showPicker?.();
+                }
+            }, 100);
+        }
+    }, [editingDateField]);
 
     const handleDateChange = (projectId, field, newDate) => {
         // Find current project
@@ -70,7 +84,7 @@ const ProjectList = ({ handleEditProject, handleDeleteProject, viewMode, setView
         return dayjs(dateString).format('YYYY-MM-DD'); // For HTML date input
     };
 
-    // Rest of your component remains the same...
+    // Enhanced DateDisplay component with direct calendar opening
     const DateDisplay = ({ project, field, className = '' }) => {
         const isEditing = editingDateField?.projectId === project.id && editingDateField?.field === field;
         
@@ -91,6 +105,7 @@ const ProjectList = ({ handleEditProject, handleDeleteProject, viewMode, setView
         if (isEditing) {
             return (
                 <input
+                    ref={dateInputRef}
                     type="date"
                     defaultValue={convertToInputDate(project[field])}
                     {...getDateConstraints()}
@@ -103,8 +118,12 @@ const ProjectList = ({ handleEditProject, handleDeleteProject, viewMode, setView
                             setEditingDateField(null);
                         }
                     }}
-                    autoFocus
                     className={styles.dateInput}
+                    style={{
+                        position: 'relative',
+                        zIndex: 1000,
+                        cursor: 'pointer'
+                    }}
                 />
             );
         }
@@ -122,7 +141,63 @@ const ProjectList = ({ handleEditProject, handleDeleteProject, viewMode, setView
         );
     };
 
-    // ListView and GridView components remain the same as in your original code...
+    // Enhanced Card Date Input component
+    const CardDateInput = ({ project, field, label }) => {
+        const isEditing = editingDateField?.projectId === project.id && editingDateField?.field === field;
+        
+        const getDateConstraints = () => {
+            if (field === 'startDate') {
+                return {
+                    max: project.dueDate ? convertToInputDate(project.dueDate) : undefined
+                };
+            } else if (field === 'dueDate') {
+                return {
+                    min: project.startDate ? convertToInputDate(project.startDate) : undefined
+                };
+            }
+            return {};
+        };
+
+        if (isEditing) {
+            return (
+                <input
+                    ref={dateInputRef}
+                    type="date"
+                    defaultValue={convertToInputDate(project[field])}
+                    {...getDateConstraints()}
+                    onChange={(e) => handleDateChange(project.id, field, e.target.value)}
+                    onBlur={handleDateBlur}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            handleDateChange(project.id, field, e.target.value);
+                        } else if (e.key === 'Escape') {
+                            setEditingDateField(null);
+                        }
+                    }}
+                    className={styles.cardDateInput}
+                    style={{
+                        position: 'relative',
+                        zIndex: 1000,
+                        cursor: 'pointer',
+                        width: '100%'
+                    }}
+                />
+            );
+        }
+
+        return (
+            <div 
+                className={styles.cardInfoItem}
+                onClick={() => handleDateClick(project.id, field)}
+                style={{ cursor: 'pointer' }}
+                title={`Click to edit ${label.toLowerCase()}`}
+            >
+                <Calendar size={14} className={styles.cardIcon} />
+                <span className={styles.cardInfoText}>{label}: {formatDate(project[field])}</span>
+            </div>
+        );
+    };
+
     const ListView = () => (
         <div className={styles.projectListContainer}>
             {/* Table Header */}
@@ -225,63 +300,8 @@ const ProjectList = ({ handleEditProject, handleDeleteProject, viewMode, setView
                         <p className={styles.cardDescription}>{project.description}</p>
                         
                         <div className={styles.cardInfo}>
-                            <div 
-                                className={styles.cardInfoItem}
-                                onClick={() => handleDateClick(project.id, 'startDate')}
-                                style={{ cursor: 'pointer' }}
-                                title="Click to edit start date"
-                            >
-                                <Calendar size={14} className={styles.cardIcon} />
-                                {editingDateField?.projectId === project.id && editingDateField?.field === 'startDate' ? (
-                                    <input
-                                        type="date"
-                                        defaultValue={convertToInputDate(project.startDate)}
-                                        max={project.dueDate ? convertToInputDate(project.dueDate) : undefined}
-                                        onChange={(e) => handleDateChange(project.id, 'startDate', e.target.value)}
-                                        onBlur={handleDateBlur}
-                                        onKeyDown={(e) => {
-                                            if (e.key === 'Enter') {
-                                                handleDateChange(project.id, 'startDate', e.target.value);
-                                            } else if (e.key === 'Escape') {
-                                                setEditingDateField(null);
-                                            }
-                                        }}
-                                        autoFocus
-                                        className={styles.cardDateInput}
-                                    />
-                                ) : (
-                                    <span className={styles.cardInfoText}>Start: {formatDate(project.startDate)}</span>
-                                )}
-                            </div>
-                            
-                            <div 
-                                className={styles.cardInfoItem}
-                                onClick={() => handleDateClick(project.id, 'dueDate')}
-                                style={{ cursor: 'pointer' }}
-                                title="Click to edit due date"
-                            >
-                                <Calendar size={14} className={styles.cardIcon} />
-                                {editingDateField?.projectId === project.id && editingDateField?.field === 'dueDate' ? (
-                                    <input
-                                        type="date"
-                                        defaultValue={convertToInputDate(project.dueDate)}
-                                        min={project.startDate ? convertToInputDate(project.startDate) : undefined}
-                                        onChange={(e) => handleDateChange(project.id, 'dueDate', e.target.value)}
-                                        onBlur={handleDateBlur}
-                                        onKeyDown={(e) => {
-                                            if (e.key === 'Enter') {
-                                                handleDateChange(project.id, 'dueDate', e.target.value);
-                                            } else if (e.key === 'Escape') {
-                                                setEditingDateField(null);
-                                            }
-                                        }}
-                                        autoFocus
-                                        className={styles.cardDateInput}
-                                    />
-                                ) : (
-                                    <span className={styles.cardInfoText}>Due: {formatDate(project.dueDate)}</span>
-                                )}
-                            </div>
+                            <CardDateInput project={project} field="startDate" label="Start" />
+                            <CardDateInput project={project} field="dueDate" label="Due" />
                         </div>
                     </div>
                 </div>
