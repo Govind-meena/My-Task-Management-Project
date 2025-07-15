@@ -115,10 +115,10 @@ Each box shows the count and relevant task data for easy tracking and monitoring
    
 
 git Repositorie
-https://github.com/Govind-meena/My-Projects
+https://github.com/Govind-meena/My-Task-Management-Project
 
 Navigate to the Project Directory
-cd My-Project
+cd My-Task-Management-Project
 
 Install Required Dependencies
 npm install 
