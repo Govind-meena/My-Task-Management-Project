@@ -52,7 +52,7 @@ const Subtask = () => {
                 )}
 
             </div>
-            <div style={{ overflowY: 'auto' }}>
+            <div >
                 <SubTasklist Details={Details} setOpenSubTaskWindow={setOpenSubTaskWindow} setEditSubTaskData={setEditSubTaskData} subTaskData={subTaskData} setSubTaskData={setSubTaskData} />
             </div>
             {openSubTaskWindow && (

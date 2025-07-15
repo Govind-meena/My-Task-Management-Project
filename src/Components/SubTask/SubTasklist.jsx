@@ -176,7 +176,6 @@ const SubTasklist = (props) => {
                                                             zIndex: 1000,
                                                             minWidth: '150px',
                                                             maxHeight: '200px',
-                                                            overflowY: 'auto'
                                                         }}
                                                     >
                                                         {userData && userData.length > 0 ? (
