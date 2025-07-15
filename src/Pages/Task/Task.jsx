@@ -103,7 +103,7 @@ const Task = () => {
               boxSizing: 'border-box'
             }}
           >
-            <AddTask setOpenTaskWindow={setOpenTaskWindow} editTaskData={editTaskData} setEditTaskData={setEditTaskData} />
+            <AddTask setOpenTaskWindow={setOpenTaskWindow} editTaskData={editTaskData} setEditTaskData={setEditTaskData} setTaskData={setTaskData}/>
           </div>
         </div>
       )}

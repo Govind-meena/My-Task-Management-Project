@@ -63,6 +63,7 @@ const AddTask = (props) => {
                 description: description ? description : '',
                 taskType,
                 dueDate,
+                taskRunStatus:'Open'
             };
             setTaskData(prevList => [...prevList, newTask]);
             handleCloseWindow()

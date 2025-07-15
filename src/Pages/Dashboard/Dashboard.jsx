@@ -3,22 +3,20 @@ import { ProjectContext } from '../../Context/ContextProvider';
 import styles from '../../Styles/DashBoard/DashBoard.module.css';
 
 const statusColors = {
-  Open: '#95a5a6',         
-  'In Progress': '#2980b9', 
-  Paused: 'rgb(148 5 35)',     
-  Done: '#27ae60',          
+  Open: '#95a5a6',
+  'In Progress': '#2980b9',
+  Paused: 'rgb(148 5 35)',
+  Done: '#27ae60',
 };
 
 const Dashboard = () => {
   const { userData, taskData } = useContext(ProjectContext);
-
   const [selectedUser, setSelectedUser] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('');
-
   const statuses = ['Open', 'In Progress', 'Paused', 'Done'];
 
   const filteredTasks = taskData.filter(task => {
-    const userMatch = selectedUser ? task.assignedUserId.toString() === selectedUser.toString() : true;
+    const userMatch = selectedUser ? task.assignedUserId?.toString() === selectedUser?.toString() : true;
     const statusMatch = selectedStatus ? task.taskRunStatus === selectedStatus : true;
     return userMatch && statusMatch;
   });
